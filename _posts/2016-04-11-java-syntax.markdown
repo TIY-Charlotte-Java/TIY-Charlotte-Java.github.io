@@ -103,6 +103,7 @@ class SampleClass {
 
 In a non-static context, you can access the current object by using the `this` keyword. e.g., `this.name`.
 
+
 #### Constructors
 Constructors are special methods designed to create objects. The name of these methods are the same of the enclosing type. By default, all classes receive a parameterless constructor by the Java compiler. A constructor looks like so:
 
@@ -130,16 +131,87 @@ class SampleClass {
 Usually you would make a constructor if you wanted to ensure the existence of field values before creating an object.
 
 #### Access Modifiers
+Classes, methods, and fields can have "Access Modifiers". Access modifiers define the visibility of said Class, Method, or Field.
+
+[See this chart of valid access modifiers and how they affect things](http://javabeginnerstutorial.com/core-java-tutorial/access-modifier-in-java/). 
+
+Common ones are:
+* public - accessible from outside the defined class
+* private - inaccessible from outside the defined class
+* protected - accessible from any class that extends this class.
+
+{% highlight java linenos %}
+public class SampleClass {
+    private String usedInsideSampleClass;
+    
+    public String canBeUsedOutsideSampleClass;
+}
+{% endhighlight %}
 
 #### Inheritance
+Classes can "extend" other classes. Extending a class helps with sharing functionality. A class can only extend at most one class. By default, all classes extend the `Object` class.
+
+{% highlight java linenos %}
+public class Rectangle {
+    protected int numberOfSides = 4;
+}
+
+public class Square extends Rectangle {
+    public int getSides() {
+        return numberOfSides;
+    }
+}
+{% endhighlight %}
 
 
 ### Arrays
+Arrays contain a list of information. This information can be of any type.
+
+{% highlight java linenos %}
+public class SampleClass {
+    public String[] getNames() {
+        // you can declare and initialize arrays in one line 
+        // if they are a basic type (like `String`
+        String[] names = { "Anthony", "Ben", "Michael" };
+        
+        // most arrays need to be declared like this
+        // the number in the [] is the length of the array
+        // that you are declaring.
+        String names = new String[10];
+        
+        // this is how you set variables in an array
+        // it starts with 0
+        names[0] = "Anthony";
+        names[1] = "Ben";
+        names[2] = "Michael";
+        
+        return names;
+}
+{% endhighlight %}
 
 ### Interfaces
+Interfaces can be thought of as "Contracts." When a class uses an interface, it is telling the caller "I promise I have implemented this method, you can call it."
+
+To use an interface with a class, you specify an "implements" keyword.
+
+{% highlight java linenos %}
+public interface Flyable {
+    public void fly();
+}
+
+public class AirPlane implements Flyable {
+    publc void fly() {
+        System.out.println("We're flying an AirPlane!!");
+    }
+}
+{% endhighlight %}
+
+### Control Structures
+If, if-else, else, for, while.
 
 ### Data Structures
+ArrayList  
+HashMap
 
 ### Packages
-
-### Methods
+Unique Identifier for projects.
